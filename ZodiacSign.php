@@ -44,7 +44,7 @@ class ZodiacSign
      * @param
      * @return Response
      */
-    private function sexagenaryToGregorian( $gYear )
+    private function gregorianToSexagenary( $gYear )
     {
         return ($gYear - 3) - (60 * (floor(($gYear - 3) / 60)));
     }
@@ -58,7 +58,7 @@ class ZodiacSign
     public function generateAnimal( $dateOfBirth )
     {
         $this->signs = $this->signs();
-        $this->sexaCycle = $this->sexagenaryToGregorian( $dateOfBirth );
+        $this->sexaCycle = $this->gregorianToSexagenary( $dateOfBirth );
 
         $i = 1;
         while (ceil($this->sexaCycle / 12) > 0) {
